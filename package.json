@@ -1,16 +1,33 @@
 {
-  "name": "sample-checkout",
-  "version": "0.0.1",
-  "dependencies": {
-    "express": "2.5.x",
-    "braintree": "1.6.x",
-    "coffee-script": "1.1.x",
-    "xml2js": "0.2.x",
-    "underscore": "1.4.4"
-
-  },
+  "name": "braintree-node-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
+    "node": "5.9.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haukurmar/braintree-node-api.git"
+  },
+  "author": "haukurmar@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haukurmar/braintree-node-api/issues"
+  },
+  "homepage": "https://github.com/haukurmar/braintree-node-api#readme",
+  "dependencies": {
+    "aws-sdk": "^2.3.10",
+    "body-parser": "^1.15.0",
+    "braintree": "^1.37.1",
+    "express": "^4.13.4",
+    "nconf": "^0.8.4",
+    "path": "^0.12.7",
+    "prettyjson": "^1.1.3",
+    "underscore-node": "^0.1.2",
+    "util": "^0.10.3"
   }
 }
