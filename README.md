@@ -1,76 +1,55 @@
-# Braintree node rest api example
+# Braintree Express Example
 
-A quick starter API for braintree payment processing written in express/node. Includes most commonly used endpoints.
+[![Build Status](https://travis-ci.org/braintree/braintree_express_example.svg?branch=master)](https://travis-ci.org/braintree/braintree_express_example)
 
-## Installation
-1. git clone
-2. npm install
-3. copy credentials.sample.env to .env
-4. Add your braintree settings
-5. start app with 'node index.js'
+An example Braintree integration for Node in the Express framework.
 
-## Usage
-run from command line
-$node index.js
+## Setup Instructions
 
-laumch another terminal session. Test the api
-$ curl localhost:3000/client_token
+1. Install packages:
 
-You are good to go, if you see a token returned.  The same can be acheived by using postman.
+   ```sh
+   npm install
+   ```
 
+2. Copy the contents of `example.env` into a new file named `.env` and fill in your Braintree API credentials. Credentials can be found by navigating to Account > My User > View Authorizations in the Braintree Control Panel. Full instructions can be [found on our support site](https://articles.braintreepayments.com/control-panel/important-gateway-credentials#api-credentials).
 
-Endpoint description
+3. Start the server:
 
+   ```sh
+   npm start
+   ```
+   
+   By default, this runs the app on port `3000`. You can configure the port by setting the environmental variable `PORT`.
 
-|Endpoint   |Verb|description   |
-|-------------|---|------|
-|/client_token|GET| Gets client token, this token will be used in requests to tokenise creditcards   |
-| /customer  |  POST | Create new customer |
-| /sale | POST  | Create new sale|
-| /settle/:transactionId | GET  | settle a transaction |
-| /refund/:transactionId | GET  | refund a transaction|
-| /void/:transactionId | GET  | void a transaction|
-| /cards/:customerId | GET  | Get customer cards|
-| /card | POST  | Add card to existing customer|
+## Deploying to Heroku
 
+You can deploy this app directly to Heroku to see the app live. Skip the setup instructions above and click the button below. This will walk you through getting this app up and running on Heroku in minutes.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/braintree/braintree_express_example&env[BT_ENVIRONMENT]=sandbox)
 
-## Contributing
+## Running tests
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+All tests are integration tests. Integration tests make API calls to Braintree and require that you set up your Braintree credentials. You can run this project's integration tests by adding your sandbox API credentials to `.env` and running the following commands:
 
-## History
+```sh
+# Start your node server
+npm start
 
-TODO: Write history
+# Open another shell and run
+npm test
+```
 
-## Credits
+## Testing Transactions
 
-See https://developers.braintreepayments.com for indepth documentation.
+Sandbox transactions must be made with [sample credit card numbers](https://developers.braintreepayments.com/reference/general/testing/node#credit-card-numbers), and the response of a `Transaction.sale()` call is dependent on the [amount of the transaction](https://developers.braintreepayments.com/reference/general/testing/node#test-amounts).
 
-## License
+## Help
 
-The MIT License
+ * Found a bug? Have a suggestion for improvement? Want to tell us we're awesome? [Submit an issue](https://github.com/braintree/braintree_express_example/issues)
+ * Trouble with your integration? Contact [Braintree Support](https://support.braintreepayments.com/) / support@braintreepayments.com
+ * Want to contribute? [Submit a pull request](https://help.github.com/articles/creating-a-pull-request)
 
+## Disclaimer
 
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+This code is provided as is and is only intended to be used for illustration purposes. This code is not production-ready and is not meant to be used in a production environment. This repository is to be used as a tool to help merchants learn how to integrate with Braintree. Any use of this repository or any of its code in a production environment is highly discouraged.
