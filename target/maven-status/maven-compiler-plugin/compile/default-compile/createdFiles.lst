@@ -1,2 +1,8 @@
-braintreeex/BraintreeService.class
-braintreeex/TransactionData.class
+com/test/ApplicationConfiguration.class
+com/test/BraintreeGatewayFactory.class
+com/test/PaymentRequest.class
+com/test/ApplicationInitializer.class
+com/test/PaymentController.class
+com/test/PaymentResponse.class
+com/test/ClientToken.class
+com/test/BaseResponse.class
